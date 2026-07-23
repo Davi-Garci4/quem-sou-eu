@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-noite: #150c2e;
+  --color-noite-2: #1f1245;
+  --color-ametista: #3a1f7a;
+  --color-ambar: #ffb020;
+  --color-coral: #ff5c6c;
+  --color-menta: #4ed9a4;
+  --color-papel: #f7f2ff;
+
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  background:
+    radial-gradient(1100px 700px at 15% -10%, #3a1f7a 0%, transparent 60%),
+    radial-gradient(900px 600px at 105% 110%, #6b2050 0%, transparent 55%),
+    var(--color-noite);
+  background-attachment: fixed;
+  color: var(--color-papel);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Assinatura: o cartão que ficaria preso na testa. */
+.cartao {
+  background: linear-gradient(160deg, #fffdf6 0%, #ffeecb 100%);
+  color: #241243;
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 22px 45px -18px rgba(0, 0, 0, 0.75);
+  animation: balanco 5s ease-in-out infinite;
+  transform-origin: 50% 0%;
+}
+.cartao--fechado {
+  background: repeating-linear-gradient(135deg, #2d1a5e 0 9px, #34206c 9px 18px);
+  color: var(--color-papel);
+  animation: none;
+}
+@keyframes balanco {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}
+
+.fita {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-ambar) 0 14px,
+    var(--color-coral) 14px 28px,
+    var(--color-menta) 28px 42px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ambar);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
